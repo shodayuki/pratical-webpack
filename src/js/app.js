@@ -13,3 +13,6 @@ $('body')
 velocity($('h1'), 'fadeIn', { duration: 2000, loop: true });
 
 // console.log(a);
+
+const z = { z: 3 };
+console.log({ x: 1, y: 2, ...z });
