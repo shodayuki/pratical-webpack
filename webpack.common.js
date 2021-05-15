@@ -57,12 +57,24 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|gif|png|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[contenthash].[ext]',
-          outputPath: 'images',
-          publicPath: '/images',
-        },
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[contenthash].[ext]',
+              outputPath: 'images',
+              publicPath: '/images',
+            },
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                quality: 10,
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.html$/,
